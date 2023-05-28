@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.9;
+
+contract AskEther {
+    event Log(string message, uint256 value);
+
+    function takeEther() public payable {
+        uint256 amount = msg.value;
+        uint256 weiAmount = amount * 1e18;
+        uint256 etherAmount = amount / 1e18;
+        uint256 gweiAmount = amount * 1e9;
+
+        emit Log("Amount in wei:", weiAmount);
+        emit Log("Amount in ether:", etherAmount);
+        emit Log("Amount in gwei:", gweiAmount);
+    }
+}
